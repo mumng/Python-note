@@ -19,7 +19,7 @@ client = discord.Client(intents=intents)
 async def on_ready():
     print(f'Logged in as {client.user}')
     # 1분간격으로 특정 디스코드 채널에 메세지 입력
-    channel = client.get_channel(986431193933316182)
+    channel = client.get_channel(YOUR CHNNEL ID)  # 채널 아이디는 INT형으로 입력
     while True:
         await channel.send('정기 - daily nft news 메세지 입니다' + '\n' + document_content)
         await asyncio.sleep(60)
@@ -37,7 +37,7 @@ async def on_message(message):
 def opensea_api_data(url):
     headers = {
         "accept": "application/json",
-        "x-api-key": "14f8b22ea12a4d0da370b5372e9c7112"
+        "x-api-key": "YOUR_API_KEY"
     }
     
     response = requests.get(url, headers=headers)
@@ -100,7 +100,7 @@ def process_data(data):
 def ask_chatgpt(data_json):
     api_url = "https://api.openai.com/v1/chat/completions"
     headers = {
-        "Authorization": "Bearer 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",  # 여기서 YOUR_API_KEY에 실제 API 키를 넣어주세요.
+        "Authorization": "Bearer YOUR_API_KEY",  # 여기서 YOUR_API_KEY에 실제 API 키를 넣어주세요.
         "Content-Type": "application/json",
     }
 
@@ -134,4 +134,4 @@ global document_content
 document_content = ask_chatgpt(data_json)
 
 # 봇을 실행합니다. 여기서 'YOUR_TOKEN_HERE'는 실제 봇 토큰으로 교체해야 합니다.
-client.run('MTIyOTYxMTMxOTUxMTIyNDQwNA.GRX5qD.LpBF0bMAi3pgl_hwuevA49HwAn8VLk1Gb02J4A')
+client.run('YOUR TOKEN HERE')
